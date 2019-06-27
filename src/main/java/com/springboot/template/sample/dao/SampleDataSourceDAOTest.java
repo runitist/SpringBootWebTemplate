@@ -3,7 +3,6 @@ package com.springboot.template.sample.dao;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
@@ -21,7 +20,6 @@ public class SampleDataSourceDAOTest {
 	@Autowired JdbcTemplate jt;
 	  
 	  public List<Map<String, ?>> selectAll() {
-	    
 	    return jt.query("select * from test", (rs, rowNum) -> {
 	      Map<String, Object> mss = new HashMap<>();
 	      mss.put("testint", rs.getInt(1));

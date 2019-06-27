@@ -10,12 +10,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.springboot.template.sample.dao.SampleDataSourceDAOTest;
+import com.springboot.template.sample.service.DemoService;
 
 @RestController
 @RequestMapping("/test")
 public class SampleController {
 	@Autowired
-	SampleDataSourceDAOTest smd;
+	private SampleDataSourceDAOTest smd;
+	@Autowired
+	private DemoService service;
+	
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@RequestMapping("/datasourcetest")
@@ -23,6 +27,13 @@ public class SampleController {
 		//Plain Datasource Test
 		logger.info("datasourcetest 시작");
 		return smd.selectAll();
+	}
+	
+	@RequestMapping("/mybatistest")
+	public String mybatisTest() throws Exception {
+		//MybatisTest
+		logger.info("mybatisTest 시작");
+		return service.getDual();
 	}
 	
 }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+	<!-- set namespace same name as dao class you want to connect -->
+<mapper namespace="com.springboot.template.sample.dao.DemoDao">
+
+	<!-- /* select dual */ -->
+	<!-- id is same as method of dao class -->
+	<select id="getDual" resultType="java.lang.String">
+		select now() from dual
+	</select>
+</mapper>

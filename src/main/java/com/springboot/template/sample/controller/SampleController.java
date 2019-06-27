@@ -16,12 +16,13 @@ import com.springboot.template.sample.dao.SampleDataSourceDAOTest;
 public class SampleController {
 	@Autowired
 	SampleDataSourceDAOTest smd;
-	
 	Logger logger = LoggerFactory.getLogger(this.getClass());
 
 	@RequestMapping("/datasourcetest")
 	public List<Map<String, ?>> getMessages() {
+		//Plain Datasource Test
 		logger.info("datasourcetest 시작");
 		return smd.selectAll();
 	}
+	
 }
